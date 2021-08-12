@@ -18,7 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "Experiment")
 @EntityListeners(AuditingEntityListener.class)
-public class Experiment {
+public class Experiment extends AuditorClass {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,14 +46,7 @@ public class Experiment {
 	@ManyToOne
 	private Experiment experiment;
 	
-	@Column(name = "created_date", nullable = false, updatable = false)
-    @CreatedDate
-    private long createdDate;
-
-    @Column(name = "modified_date")
-    @LastModifiedDate
-    private long modifiedDate;
-
+	
 	public Integer getExperimentID() {
 		return experimentID;
 	}
